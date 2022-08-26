@@ -28,9 +28,14 @@ export const BoxTitle = styled.section`
 export const BoxForm = styled.section`
   display: flex;
   flew-wrap: nowrap;
+  flex-direction: column;
   gap: 16px;
   justify-content: space-between;
   margin-bottom: 31px;
+
+  @media screen and (min-width: 1024px) {
+    flex-direction: row;
+  }
 `;
 
 export const BoxInput = styled.section`
@@ -48,6 +53,13 @@ export const Footer = styled.footer`
   display: flex;
   justify-content: center;
   padding-bottom: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
   padding-top: 16px;
   width: 100%;
+
+  @media screen and (min-width: 1024px) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 `;
