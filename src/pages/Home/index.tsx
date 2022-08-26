@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 // Components
 import { Logo } from '../../components/Logo';
@@ -23,6 +23,55 @@ import {
 } from './styles';
 
 const Home: React.FC = () => {
+  const [phone, setPhone] = useState('');
+  const [CPF, setCPF] = useState('');
+  const [email, setEmail] = useState('');
+  const [disableButton, setDisableButton] = useState(true);
+
+  const [emailError, setEmailError] = useState('');
+  const [CPFError, setCPFError] = useState('');
+  const [phoneError, setPhoneError] = useState('');
+
+  useEffect(() => {
+    // Validação de email
+    email
+      ? /\S+@\S+\.\S+/.test(email)
+        ? setEmailError('')
+        : setEmailError('E-mail inválido')
+      : setEmailError('E-mail obrigatório');
+
+    // Validação de formato de CPF
+    CPF
+      ? /^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test(CPF)
+        ? setCPFError('')
+        : setCPFError('CPF em formato inválido')
+      : setCPFError('CPF obrigatório');
+
+    // Validação de telefone
+    phone
+      ? /^\+?\s*\(\d{2}\)?\s*\d{4,5}?\d{4}$/g.test(phone)
+        ? setPhoneError('')
+        : setPhoneError('Celular inválido')
+      : setPhoneError('Celular obrigatório');
+
+    // Validação do botão
+    (phoneError === '' ? true : false) &&
+    (CPFError === '' ? true : false) &&
+    (emailError === '' ? true : false)
+      ? setDisableButton(false)
+      : setDisableButton(true);
+  }, [phone, phoneError, CPF, CPFError, email, emailError]);
+
+  const handleButton = () => {
+    const data = {
+      telefone: phone,
+      cpf: CPF,
+      email: email,
+    };
+
+    console.log(data);
+  };
+
   return (
     <Main>
       <Container>
@@ -39,7 +88,10 @@ const Home: React.FC = () => {
             <Input
               type="tel"
               label="Número do celular"
+              inputSetValue={setPhone}
+              helper={phoneError}
               placeholder="(xx) 0000-0000"
+              error={phoneError === '' ? false : true}
             />
           </BoxInput>
 
@@ -47,8 +99,10 @@ const Home: React.FC = () => {
             <Input
               type="text"
               label="Seu CPF"
-              helper="Teste"
+              inputSetValue={setCPF}
+              helper={CPFError}
               placeholder="000.000.000-00"
+              error={CPFError === '' ? false : true}
             />
           </BoxInput>
 
@@ -56,13 +110,18 @@ const Home: React.FC = () => {
             <Input
               type="email"
               label="Seu e-mail"
+              inputSetValue={setEmail}
+              helper={emailError}
               placeholder="email@email.com"
+              error={emailError === '' ? false : true}
             />
           </BoxInput>
         </BoxForm>
 
         <BoxButton>
-          <Button>Próximo</Button>
+          <Button disabled={disableButton} onClick={handleButton}>
+            Próximo
+          </Button>
         </BoxButton>
       </Container>
       <Footer>
