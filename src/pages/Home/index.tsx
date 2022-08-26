@@ -3,6 +3,7 @@ import React from 'react';
 // Components
 import { Logo } from '../../components/Logo';
 import { Caption } from '../../components/Caption';
+import { Button } from '../../components/Button';
 
 // Assets
 import Carrefour from '../../assets/carrefour-solucoes-financeiras.svg';
@@ -15,6 +16,7 @@ const Home: React.FC = () => {
     <Main>
       <Container>
         <Logo src={Carrefour} alt="Carrefour Soluções Financeiras" />
+        <Button>Próximo</Button>
       </Container>
       <Footer>
         <Caption>
