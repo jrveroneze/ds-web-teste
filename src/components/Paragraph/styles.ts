@@ -1,5 +1,6 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
+// Interface
 interface Props {
   type: 'normal' | 'highlight';
 }

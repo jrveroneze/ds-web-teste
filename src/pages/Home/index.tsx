@@ -3,6 +3,7 @@ import React from 'react';
 // Components
 import { Logo } from '../../components/Logo';
 import { Caption } from '../../components/Caption';
+import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 
 // Assets
@@ -16,6 +17,13 @@ const Home: React.FC = () => {
     <Main>
       <Container>
         <Logo src={Carrefour} alt="Carrefour Soluções Financeiras" />
+        <Input
+          type="email"
+          label="Label"
+          helper="Helper Text"
+          placeholder="Placeholder"
+        />
+        <Input label="Label" helper="Helper Text" placeholder="Placeholder" />
         <Button>Próximo</Button>
       </Container>
       <Footer>

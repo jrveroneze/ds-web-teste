@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, Children } from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 
 // Styles
 import { Container } from './styles';
