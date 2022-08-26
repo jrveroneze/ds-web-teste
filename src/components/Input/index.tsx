@@ -10,15 +10,16 @@ import { Container } from './styles';
 // Interface
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
-  helper: string;
+  helper?: string;
+  error?: boolean;
 }
 
-export function Input({ label, helper, ...props }: Props) {
+export function Input({ label, helper, error, ...props }: Props) {
   return (
     <>
       <Paragraph type="highlight">{label}</Paragraph>
-      <Container {...props} />
-      <Caption>{helper}</Caption>
+      <Container error={error} {...props} />
+      {helper && <Caption error={error}>{helper}</Caption>}
     </>
   );
 }

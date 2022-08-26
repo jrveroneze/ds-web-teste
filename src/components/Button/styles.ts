@@ -13,6 +13,7 @@ export const Container = styled.button`
   padding: 12px 24px;
   text-decoration: none;
   transition: background-color ease-in-out 0.3s;
+  width: 224px;
 
   &:hover {
     background-color: #002c7a;

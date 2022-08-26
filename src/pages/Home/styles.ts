@@ -13,6 +13,35 @@ export const Container = styled.div`
   padding: 16px;
 `;
 
+export const BoxLogo = styled.section`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 48px;
+`;
+
+export const BoxTitle = styled.section`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 33px;
+`;
+
+export const BoxForm = styled.section`
+  display: flex;
+  flew-wrap: nowrap;
+  gap: 16px;
+  justify-content: space-between;
+  margin-bottom: 31px;
+`;
+
+export const BoxInput = styled.section`
+  flex-grow: 1;
+`;
+
+export const BoxButton = styled.section`
+  display: flex;
+  justify-content: center;
+`;
+
 export const Footer = styled.footer`
   align-self: flex-end;
   border-top: 1px solid #d0d0d0;

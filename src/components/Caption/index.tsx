@@ -6,8 +6,9 @@ import { Container } from './styles';
 // Interface
 interface Props {
   children: React.ReactNode;
+  error?: boolean;
 }
 
-export function Caption({ children }: Props) {
-  return <Container>{children}</Container>;
+export function Caption({ children, error }: Props) {
+  return <Container error={error}>{children}</Container>;
 }

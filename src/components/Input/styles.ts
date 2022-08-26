@@ -1,8 +1,19 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Container = styled.input`
+interface Props {
+  error?: boolean;
+}
+
+export const Container = styled.input<Props>`
   border-radius: 2px;
-  border: 1px solid #d0d0d0;
+  ${({ error }) =>
+    error
+      ? css`
+          border: 1px solid #ff0000;
+        `
+      : css`
+          border: 1px solid #d0d0d0;
+        `}
   color: #282828;
   font-size: 14px;
   font-weight: 400;
